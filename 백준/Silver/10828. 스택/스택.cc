@@ -4,23 +4,23 @@
 
 #define MAX_SIZE 10000
 
-typedef struct _stack {
+typedef struct _stack {//스택만들기
 	int arr[MAX_SIZE];
 	int top;
 }Stack;
 
 void StackInit(Stack* sp) {
-	sp->top = -1;//화살표가 뭐지??
+	sp->top = -1;
 }
 
-int IsEmpty(Stack* sp) {
+int IsEmpty(Stack* sp) {//빈스택인지 확인하기
 	if (sp->top == -1)
 		return 1;
 	return 0;
 }
 
-int Size(Stack* sp) {
-	return sp->top + 1;//이러면 top에 1더하고 계산인가
+int Size(Stack* sp) {//
+	return sp->top + 1;
 }
 
 int IsFull(Stack* sp) {
@@ -31,7 +31,7 @@ int IsFull(Stack* sp) {
 
 void Push(Stack* sp, int data) {
 	if (IsFull(sp) == 1)
-		return;//return 뒤에 숫자없어도 ㄱㅊ?
+		return;
 	sp->arr[++(sp->top)] = data;
 }
 
@@ -48,31 +48,7 @@ int Peek(Stack* sp) {
 }
 
 int main(void) {
-	//int N, M;
-	//char num[50][50];
-
-	//scanf("%d %d", &N, &M);
-	//for (int i = 0;i < N;i++)
-	//{
-	//	for (int j = 0;j < M;j++)
-	//	{
-	//		scanf("%d", &num[i][j]);
-	//	}
-	//}//1051
-
-	/*StackType* s;
-	s = (StackType*)malloc(sizeof(StackType));
-	init_stack(s);
-	push(s, 1);
-	push(s, 2);
-	push(s, 3);
-
-	printf("%d\n", pop(s));
-	printf("%d\n", pop(s));
-	printf("%d\n", pop(s));
-
-	free(s);*/
-
+	
 	int i, n, num;
 	char str[6];
 	Stack stack;
@@ -84,7 +60,6 @@ int main(void) {
 	for (i = 0;i < n;i++)
 	{
 		scanf("%s", str);
-		fgetc(stdin);
 
 		if (!strcmp(str, "push")) {
 			scanf("%d", &num);
