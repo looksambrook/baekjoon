@@ -1,27 +1,36 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
+
+double change(string grade) {
+	if (grade == "A+")return 4.5;
+	if (grade == "A0")return 4.0;
+	if (grade == "B+")return 3.5;
+	if (grade == "B0")return 3.0;
+	if (grade == "C+")return 2.5;
+	if (grade == "C0")return 2.0;
+	if (grade == "D+")return 1.5;
+	if (grade == "D0")return 1.0;
+	if (grade == "F")return 0.0;
+	
+	return 0.0;
+}
 int main() {
-	string majorName; double avg = 0; float sumGrade = 0;
-	double score[20]; float grade[20];
-	string input;
-	for (int i = 0; i < 20; ++i)
-	{
-		cin >> majorName >> grade[i] >> input;
-		if (input == "A+") score[i] = 4.5;
-		else if (input == "A0") score[i] = 4.0;
-		else if (input == "B+") score[i] = 3.5;
-		else if (input == "B0") score[i] = 3.0;
-		else if (input == "C+") score[i] = 2.5;
-		else if (input == "C0") score[i] = 2.0;
-		else if (input == "D+") score[i] = 1.5;
-		else if (input == "D0") score[i] = 1.0;
-		else if (input == "F") score[i] = 0.0;
-		else if (input == "P") { score[i] = 0.0; grade[i] = 0; }
-		avg += (score[i] * grade[i]);
-		sumGrade += grade[i];
+	char subject_name[51];
+	string grade;
+	double credit;
+	int cnt=0;
+	double sum = 0.0;
+
+	for (int i = 0;i < 20;i++) {
+		cin >> subject_name >> credit >> grade;
+		if(grade!="P")
+			cnt += credit;
+		sum += credit * change(grade);
 	}
-	avg = avg / sumGrade;
-	cout << fixed;
-	cout.precision(6);
-	cout << avg;
+
+	cout << sum / cnt;
+
+	return 0;
 }
