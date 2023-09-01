@@ -1,10 +1,13 @@
-#include <stdio.h>
+#include <iostream>
 
-int main(void)
-{
-    int A, B;
-    scanf("%d", &A);
-    scanf("%d", &B); 
-    printf("%d", A+B);
-    return 0;
+using namespace std;
+
+int main() {
+	int A, B;
+
+	cin >> A >> B;
+
+	cout << A + B;
+
+	return 0;
 }
