@@ -2,19 +2,19 @@
 
 using namespace std;
 
-bool isPalindrome(string *sr,int *cnt) {
-	if (*cnt > ((*sr).size() - *cnt - 1)) {
-		if ((*sr).size() % 2 == 0)
-			*cnt += 1;
-		return true;
-	}
-	if ((*sr)[*cnt] != (*sr)[(*sr).size() - *cnt - 1]) {
+bool recursion(string *sr, int* cnt) {
+	if (*cnt >= ((*sr).size() - *cnt - 1)) return true;
+	else if ((*sr)[*cnt] != (*sr)[(*sr).size() - *cnt - 1]) return false;
+	else {
 		*cnt += 1;
-		return false;
+		return recursion(sr, cnt);
 	}
-	*cnt += 1;
+}
 
-	return isPalindrome(sr, cnt);
+int isPalindrome(string *sr,int *cnt) {
+	cout << recursion(sr, cnt) << " ";
+
+	return *cnt+1;
 }
 
 int main() {
@@ -28,10 +28,8 @@ int main() {
 		int cnt = 0;
 		string sr;
 		cin >> sr;
-		if (sr.size() == 1)
-			cout << "1 1\n";
-		else
-			cout << isPalindrome(&sr,&cnt) << " " << cnt <<"\n";
+		
+		cout << isPalindrome(&sr,&cnt) <<"\n";
 	}
 
 
